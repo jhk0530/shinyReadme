@@ -5,133 +5,10 @@ library(shiny.semantic)
 library(shinyjs)
 library(V8)
 
-myDashboardHeader <- function() {
-  dashboardHeader(
-    color = "blue",
-    inverted = TRUE,
-    actionButton(
-      inputId = "link",
-      label = "Github",
-      icon = uiicon(type = "github"),
-      class = "Autobuild"
-    )
-  )
-}
-myDashboardSidebar <- function() {
-  dashboardSidebar(
-    color = "blue",
-    size = "",
-    inverted = TRUE,
-    sidebarMenu(
-      actionButton(
-        inputId = "Title", label = "Title",
-        icon = icon(type = "clipboard outline"), class = "Autobuild"
-      ),
+source('icons.R')
+source('ui.R')
+source("functions.R")
 
-      actionButton(
-        inputId = "Description", label = "Description",
-        icon = icon(type = "pencil alternate"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "Prerequisites", label = "Prerequisites",
-        icon = icon(type = "terminal"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "Install", label = "Install",
-        icon = icon(type = "cog"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "Dependency", label = "Dependency",
-        icon = icon(type = "book"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "Author", label = "Author",
-        icon = icon(type = "user outline"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "GetStart", label = "GetStart",
-        icon = icon(type = "play"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "API", label = "API",
-        icon = icon(type = "sticky note outline"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "shinyapps", label = "shinyapps",
-        icon = icon(type = "cloud"), class = "Autobuild"
-      ),
-
-      actionButton(
-        inputId = "License", label = "License",
-        icon = icon(type = "file alternate outline"), class = "Autobuild"
-      )
-    )
-  )
-}
-myDashboardBody <- function() {
-  dashboardBody(
-    style = "width:100% !important",
-    tags$head(
-      tags$style(HTML(".downloadButton:hover {background-color: #94cf96 !important;}")),
-      tags$style(HTML(".Autobuild:hover {background-color: #328fd4 !important;}")),
-      tags$style(HTML(".downloadButton {
-                      font-size:1.5em;
-                      float:right;
-                      background-color : #44bd32;
-                      color : white;
-                      font-weight: 1000;
-                      padding :0.5em;}")),
-      tags$style(HTML("#toggle_menu {font-size : 1.5em;}")),
-      tags$style(HTML(".Autobuild {
-                      background-color: #2185D0 !important;
-                      border-bottom:0.1px solid #217abf;
-                      text-align:left;
-                      color:white;
-                      width:100%;
-                      padding : 0.5em;
-                      font-size : 1.5em;
-                      cursor:pointer;
-                      border-top:none;
-                      border-right:none;border-left:none;
-                      }"))
-    ),
-    useShinyjs(),
-    extendShinyjs(script = "download.js"),
-    fluidRow(
-      semantic.dashboard::column(
-        width = 8,
-        tags$textarea(
-          id = "text",
-          cols = 30,
-          rows = 20,
-          style = "width : 100%; font-size :1.5em; resize :none;"
-        ),
-        p("Press Enter to load text completely",
-          style = "font-weight: bold;
-                font-size: 1.5em;
-                float: left;"
-        ),
-        actionButton(
-          inputId = "Download",
-          label = "Download",
-          icon = icon(type = "save outline"),
-          class = "downloadButton"
-        )
-      ),
-      semantic.dashboard::column(
-        width = 8,
-        uiOutput(outputId = "markdown")
-      )
-    )
-  )
-}
 ui <- dashboardPage(
   title = "ShinyReadme",
   header = myDashboardHeader(),
@@ -139,42 +16,12 @@ ui <- dashboardPage(
   body = myDashboardBody()
 )
 
-addinTextArea <- function(txt) {
-  txt <- gsub("\n", "<br>", txt)
-  txt <- paste0("document.getElementById('text').value += '", txt, "'")
-  return(txt)
-}
-
-nextLine <- function() {
-  shinyjs::runjs("document.getElementById('text').value += '\\n'")
-}
-
-hide <- function(btn) {
-  shinyjs::runjs(paste0('$("#', btn, '").hide(500)'))
-}
-
-Add <- function(text) {
-  shinyjs::runjs(addinTextArea(text))
-}
-
-Focus <- function() {
-  shinyjs::runjs('$("#text").focus()')
-}
-
-CodeArea <- function(txt) {
-  Add("```r")
-  nextLine()
-  Add(txt)
-  nextLine()
-  Add("```")
-}
-
 server <- function(input, output, session) {
   output$markdown <- renderUI({
     HTML(markdownToHTML(text = input$text, stylesheet = "", header = ""))
   })
 
-  observeEvent(input$link, {
+  observeEvent(input$Githublink, {
     shinyjs::runjs("window.open('https://github.com/jhk0530', '_blank')")
   })
 
@@ -231,6 +78,7 @@ server <- function(input, output, session) {
     nextLine()
     Focus()
   })
+
   observeEvent(input$Prerequisites, {
     hide("Prerequisites")
     Add("### :clipboard: Prerequisites")
@@ -278,6 +126,64 @@ server <- function(input, output, session) {
     nextLine()
     nextLine()
     Focus()
+  })
+
+  observeEvent(input$h1, {
+    Add('# large header')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$h2, {
+    Add('## medium header')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$h3, {
+    Add('### small header')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$bl, {
+    Add('* item')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$hr, {
+    Add('<hr>')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$link, {
+    Add('[title](http://link.here)')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$table, {
+    Add('|AAAAAA|BBBBBB|CCCCCCC|')
+    nextLine()
+    Add('|---:|:---:|:---|')
+    nextLine()
+    Add('|right|center|left|')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$image, {
+    Add('<img src ="https://user-images.githubusercontent.com/6457691/71307309-d000d600-242f-11ea-9ab9-32bf32ac57d8.png" width = 300> </img>')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$code, {
+    Add('``` R')
+    nextLine()
+    Add('cat("Hello, world")')
+    nextLine()
+    Add('```')
+    nextLine();nextLine();Focus()
+  })
+
+  observeEvent(input$ricon,{
+    Add(paste0(':',sample(icons,1), ':') )
+    nextLine();nextLine();Focus()
   })
 
   observeEvent(input$Download, {
