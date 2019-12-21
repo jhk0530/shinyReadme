@@ -1,9 +1,8 @@
 # :yellow_heart: shinyReadme
-<hr>
 
 user-friendly generate github readme
 
-### :clipboard: Prerequisites
+## :clipboard: Prerequisites
 * [shiny](https://github.com/rstudio/shiny) - 1.4.0
 * [markdown](https://github.com/rstudio/rmarkdown) - 1.1
 * [semantic.dashboard](https://github.com/Appsilon/semantic.dashboard) - 0.1.1
@@ -11,7 +10,12 @@ user-friendly generate github readme
 * [shinyjs](https://github.com/daattali/shinyjs) - 1.0
 * [V8](https://github.com/jeroen/v8) - 2.3
 
-### :wrench: Install
+or 
+* use shinyapps.io will not require these libraries.
+
+<hr>
+
+## :wrench: Install / Run
 
 1) use shinyReadme with local machine 
 
@@ -26,15 +30,34 @@ shinyReadme()
 
 [Here](https://jhkim.shinyapps.io/shinyReadme/)
 
-### :blush: Authors
-* :octocat: Jh Kim [@jhk0530](http://github.com/jhk0530)
+<hr>
 
-### :cloud: ShinyApps
+## :two_hearts: Usage
+
+* click blocks
+* modify them.
+* copy/paste or download mdfile
+
+<img src = 'https://user-images.githubusercontent.com/6457691/71308153-270ca800-243c-11ea-9c01-cd20413c907d.gif' width = 600></img>
+
+<hr>
+
+## :blush: Authors
+* :octocat: Jh Kim [@jhk0530](http://github.com/jhk0530/)
+
+<hr>
+
+## :cloud: ShinyApps
 https://jhkim.shinyapps.io/shinyReadme/
 
-### :memo: License
-Copyright :copyright: 2019 Jinhwan Kim
+<hr>
+
+## :memo: License
+Copyright :copyright: 2019 Jinhwan Kim <br>
 This project is [MIT](https://opensource.org/licenses/MIT) licensed
 
 *This README was generated with :two_hearts: by [shinyReadme](http://github.com/jhk0530/shinyReadme)*
+
+
+
 
