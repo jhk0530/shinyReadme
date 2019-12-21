@@ -15,7 +15,7 @@ myDashboardHeader <- function() {
 myDashboardSidebar <- function() {
   dashboardSidebar(
     color = "blue",
-    size = "",
+    size = "thin",
     inverted = TRUE,
     sidebarMenu(
       actionButton(
@@ -114,18 +114,18 @@ myDashboardBody <- function() {
       tags$style(HTML(".downloadButton:hover {background-color: #94cf96 !important;}")),
       tags$style(HTML(".Autobuild:hover {background-color: #328fd4 !important;}")),
       tags$style(HTML(".downloadButton {
-                      font-size:1.5em;
+                      font-size:1em;
                       float:right;
                       background-color : #44bd32;
                       color : white;
                       font-weight: 1000;
                       padding :0.5em;}")),
-      tags$style(HTML("#toggle_menu {font-size : 1.5em; background-color:#00cec9;}")),
+      tags$style(HTML("#toggle_menu {font-size : 1em; background-color:#00cec9;}")),
       tags$style(HTML('.Blocks {
                       color: white;
                       width: 100%;
                       padding: 0.5em;
-                      font-size: 2em;
+                      font-size: 1.2em;
                       background-color: #00cec9;
                       border: solid 0px white;
                       }')),
@@ -136,7 +136,7 @@ myDashboardBody <- function() {
                       color:white;
                       width:100%;
                       padding : 0.5em;
-                      font-size : 1.5em;
+                      font-size : 1em;
                       cursor:pointer;
                       border-top:none;
                       border-right:none;border-left:none;
@@ -151,11 +151,11 @@ myDashboardBody <- function() {
           id = "text",
           cols = 30,
           rows = 20,
-          style = "width : 100%; font-size :1.5em; resize :none;"
+          style = "width : 100%; font-size :1em; resize :none;"
         ),
         p("Press Enter to load text completely",
           style = "font-weight: bold;
-                font-size: 1.5em;
+                font-size: 1em;
                 float: left;"
         ),
         actionButton(
