@@ -1,6 +1,8 @@
-# :yellow_heart: shinyReadme
+# :yellow_heart: shinyReadme <img src = 'https://user-images.githubusercontent.com/6457691/71320252-10258e80-24ec-11ea-959c-c545f2061dda.png' width = 120 align = 'right'></img>
+
 
 user-friendly generate github readme
+
 
 ## :clipboard: Prerequisites
 * [shiny](https://github.com/rstudio/shiny) - 1.4.0
