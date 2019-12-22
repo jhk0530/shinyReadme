@@ -19,7 +19,8 @@ myDashboardSidebar <- function() {
     inverted = TRUE,
     sidebarMenu(
       actionButton(
-        inputId = 'noId', label = 'SINGLE USE', class = 'Blocks'),
+        inputId = "noId", label = "SINGLE USE", class = "Blocks"
+      ),
 
       actionButton(
         inputId = "Title", label = "Title",
@@ -62,48 +63,48 @@ myDashboardSidebar <- function() {
       ),
 
       actionButton(
-        inputId = 'noId2', label = 'BASIC BLOCKS', class = 'Blocks'),
-
-      actionButton(
-        inputId = 'h1', label = 'Header (L)', icon = icon(type='heading'), class = 'Autobuild'
+        inputId = "noId2", label = "BASIC BLOCKS", class = "Blocks"
       ),
 
       actionButton(
-        inputId = 'h2', label = 'Header (M)', icon = icon(type='heading', style = 'font-size:0.8em;' ), class = 'Autobuild'
+        inputId = "h1", label = "Header (L)", icon = icon(type = "heading"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'h3', label = 'Header (S)', icon = icon(type='heading', style = 'font-size:0.6em;' ), class = 'Autobuild'
+        inputId = "h2", label = "Header (M)", icon = icon(type = "heading", style = "font-size:0.8em;"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'bl', label = 'Bulleted List', icon = icon(type = 'list ul'), class= 'Autobuild'
+        inputId = "h3", label = "Header (S)", icon = icon(type = "heading", style = "font-size:0.6em;"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'hr', label = 'Divider', icon = icon(type='window minimize outline'), class = 'Autobuild'
+        inputId = "bl", label = "Bulleted List", icon = icon(type = "list ul"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'link', label = "Link", icon= icon(type='linkify'), class = 'Autobuild'
+        inputId = "hr", label = "Divider", icon = icon(type = "window minimize outline"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'table', label = 'Table', icon = icon(type='table'), class = 'Autobuild'
+        inputId = "link", label = "Link", icon = icon(type = "linkify"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'image', label = 'Image', icon = icon(type='file image outline'), class = 'Autobuild'
+        inputId = "table", label = "Table", icon = icon(type = "table"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'code', label = 'Code', icon = icon(type='file code'), class = 'Autobuild'
+        inputId = "image", label = "Image", icon = icon(type = "file image outline"), class = "Autobuild"
       ),
 
       actionButton(
-        inputId = 'ricon', label = 'Random icon', icon = icon(type='heart'), class = 'Autobuild'
+        inputId = "code", label = "Code", icon = icon(type = "file code"), class = "Autobuild"
+      ),
+
+      actionButton(
+        inputId = "ricon", label = "Random icon", icon = icon(type = "heart"), class = "Autobuild"
       )
-
     )
   )
 }
@@ -121,14 +122,14 @@ myDashboardBody <- function() {
                       font-weight: 1000;
                       padding :0.5em;}")),
       tags$style(HTML("#toggle_menu {font-size : 1em; background-color:#00cec9;}")),
-      tags$style(HTML('.Blocks {
+      tags$style(HTML(".Blocks {
                       color: white;
                       width: 100%;
                       padding: 0.5em;
                       font-size: 1.2em;
                       background-color: #00cec9;
                       border: solid 0px white;
-                      }')),
+                      }")),
       tags$style(HTML(".Autobuild {
                       background-color: #2185D0 !important;
                       border-bottom:0.1px solid #217abf;

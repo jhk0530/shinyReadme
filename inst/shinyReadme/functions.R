@@ -15,7 +15,7 @@ hide <- function(btn) {
 }
 
 Add <- function(text) {
-  shinyjs::runjs(addinTextArea(text))
+  shinyjs::js$insertAtCursor(text)
 }
 
 Focus <- function() {
