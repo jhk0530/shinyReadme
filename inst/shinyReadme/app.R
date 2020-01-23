@@ -1,8 +1,8 @@
 if(!require("shiny")) install.packages('shiny')
 if(!require("markdown")) install.packages('markdown')
 if(!require("devtools")) install.packages('devtools')
-if(!require("semantic.dashboard")) devtools::install_github('Appsilon/semantic.dashboard')
-if(!require("shiny.semantic")) install.packages('shiny.semantic')
+if(!require("semantic.dashboard")) devtools::install_github('Appsilon/semantic.dashboard', dependencies = TRUE)
+if(!require("shiny.semantic")) install.packages('shiny.semantic', dependencies = TRUE)
 if(!require("shinyjs")) install.packages('shinyjs')
 
 library(shiny)
