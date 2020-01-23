@@ -3,8 +3,8 @@ CRAN = 'http://cran.rstudio.com'
 if(!require("shiny")) install.packages('shiny')
 if(!require("markdown")) install.packages('markdown')
 if(!require("devtools")) install.packages('devtools')
-if(!require("semantic.dashboard")) devtools::install_github('Appsilon/semantic.dashboard', dependencies = TRUE, repos = CRAN)
-if(!require("shiny.semantic")) install.packages('shiny.semantic', dependencies = TRUE, repo = CRAN)
+devtools::install_github('Appsilon/semantic.dashboard', dependencies = TRUE, repos = CRAN)
+install.packages('shiny.semantic', dependencies = TRUE, repo = CRAN)
 if(!require("shinyjs")) install.packages('shinyjs')
 
 library(shiny)
