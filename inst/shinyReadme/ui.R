@@ -6,7 +6,7 @@ myDashboardHeader <- function() {
     actionButton(
       inputId = "Githublink",
       label = "Github",
-      icon = uiicon(type = "github"),
+      icon = icon(type = "github"),
       class = "Autobuild"
     )
   )

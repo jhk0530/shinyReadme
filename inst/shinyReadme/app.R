@@ -1,3 +1,9 @@
+if(!require("shiny")) install.packages('shiny')
+if(!require("markdown")) install.packages('markdown')
+if(!require("semantic.dashboard")) install.packages('semantic.dashboard')
+if(!require("shiny.semantic")) install.packages('shiny.semantic')
+if(!require("shinyjs")) install.packages('shinyjs')
+
 library(shiny)
 library(markdown)
 library(semantic.dashboard)
