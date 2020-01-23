@@ -11,3 +11,17 @@ shinyjs.download = function(){
     anchor.click();
     document.body.removeChild(anchor);
  }
+ 
+shinyjs.insertAtCursor = function(txt) {
+	var myField = document.getElementById("text");
+
+    if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + txt
+            + myField.value.substring(endPos, myField.value.length);
+    } else {
+        myField.value += txt;
+    }
+}

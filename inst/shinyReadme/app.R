@@ -11,8 +11,8 @@ library(shiny.semantic)
 library(shinyjs)
 library(V8)
 
-source('icons.R')
-source('ui.R')
+source("icons.R")
+source("ui.R")
 source("functions.R")
 
 ui <- dashboardPage(
@@ -36,17 +36,11 @@ server <- function(input, output, session) {
     Add("# :yellow_heart: Title")
     nextLine()
     Add("<hr>")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
   observeEvent(input$Description, {
     hide("Description")
     Add("One Paragraph of project description goes here")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
   observeEvent(input$Install, {
@@ -67,9 +61,6 @@ server <- function(input, output, session) {
     Add("And repeat")
     nextLine()
     CodeArea("until finished")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
 
@@ -80,9 +71,6 @@ server <- function(input, output, session) {
     Add("* [component 1](http://link.here) - x.y.z")
     nextLine()
     Add("* [component 2](http://link.here) - x.y.z")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
   observeEvent(input$Prerequisites, {
@@ -92,9 +80,6 @@ server <- function(input, output, session) {
     Add("* [component 1](http://link.here) - x.y.z")
     nextLine()
     Add("* [component 2](http://link.here) - x.y.z")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
   observeEvent(input$Author, {
@@ -104,9 +89,6 @@ server <- function(input, output, session) {
     Add("* :octocat: User1 [@github](http://github.link)")
     nextLine()
     Add("* :octocat: User2 [@github](http://github.link)")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
   observeEvent(input$License, {
@@ -119,77 +101,61 @@ server <- function(input, output, session) {
     nextLine()
     nextLine()
     Add("*This README was generated with :two_hearts: by [shinyReadme](http://github.com/jhk0530/shinyReadme)*")
-    nextLine()
-    nextLine()
-    Focus()
   })
 
   observeEvent(input$shinyapps, {
-    hide('shinyapps')
-    Add('### :cloud: ShinyApps')
+    hide("shinyapps")
+    Add("### :cloud: ShinyApps")
     nextLine()
-    Add('https://jhkim.shinyapps.io/shinyReadme/')
-    nextLine()
-    nextLine()
-    Focus()
+    Add("https://jhkim.shinyapps.io/shinyReadme/")
   })
 
   observeEvent(input$h1, {
-    Add('# large header')
-    nextLine();nextLine();Focus()
+    Add("# large header")
   })
 
   observeEvent(input$h2, {
-    Add('## medium header')
-    nextLine();nextLine();Focus()
+    Add("## medium header")
   })
 
   observeEvent(input$h3, {
-    Add('### small header')
-    nextLine();nextLine();Focus()
+    Add("### small header")
   })
 
   observeEvent(input$bl, {
-    Add('* item')
-    nextLine();nextLine();Focus()
+    Add("* item")
   })
 
   observeEvent(input$hr, {
-    Add('<hr>')
-    nextLine();nextLine();Focus()
+    Add("<hr>")
   })
 
   observeEvent(input$link, {
-    Add('[title](http://link.here)')
-    nextLine();nextLine();Focus()
+    Add("[title](http://link.here)")
   })
 
   observeEvent(input$table, {
-    Add('|AAAAAA|BBBBBB|CCCCCCC|')
+    Add("|AAAAAA|BBBBBB|CCCCCCC|")
     nextLine()
-    Add('|---:|:---:|:---|')
+    Add("|---:|:---:|:---|")
     nextLine()
-    Add('|right|center|left|')
-    nextLine();nextLine();Focus()
+    Add("|right|center|left|")
   })
 
   observeEvent(input$image, {
-    Add('<img src ="https://user-images.githubusercontent.com/6457691/71307309-d000d600-242f-11ea-9ab9-32bf32ac57d8.png" width = 300> </img>')
-    nextLine();nextLine();Focus()
+    Add(myimg)
   })
 
   observeEvent(input$code, {
-    Add('``` R')
+    Add("``` R")
     nextLine()
     Add('cat("Hello, world")')
     nextLine()
-    Add('```')
-    nextLine();nextLine();Focus()
+    Add("```")
   })
 
-  observeEvent(input$ricon,{
-    Add(paste0(':',sample(icons,1), ':') )
-    nextLine();nextLine();Focus()
+  observeEvent(input$ricon, {
+    Add(paste0(":", sample(icons, 1), ":"))
   })
 
   observeEvent(input$Download, {
