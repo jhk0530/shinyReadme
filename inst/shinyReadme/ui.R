@@ -28,6 +28,11 @@ myDashboardSidebar <- function() {
       ),
 
       actionButton(
+        inputId = "Badge", label = "Badge",
+        icon = icon(type = "ticket alternate"), class = "Autobuild"
+      ),
+
+      actionButton(
         inputId = "Description", label = "Description",
         icon = icon(type = "pencil alternate"), class = "Autobuild"
       ),

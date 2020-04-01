@@ -3,8 +3,8 @@ CRAN = 'http://cran.rstudio.com'
 if(!require("shiny")) install.packages('shiny')
 if(!require("markdown")) install.packages('markdown')
 if(!require("devtools")) install.packages('devtools')
-devtools::install_github('Appsilon/semantic.dashboard', dependencies = TRUE, repos = CRAN)
-install.packages('shiny.semantic', dependencies = TRUE, repo = CRAN)
+if(!require('semantic.dashboard')) devtools::install_github('Appsilon/semantic.dashboard', dependencies = TRUE, repos = CRAN)
+if(!require('shiny.semantic')) install.packages('shiny.semantic', dependencies = TRUE, repo = CRAN)
 if(!require("shinyjs")) install.packages('shinyjs')
 
 library(shiny)
@@ -36,9 +36,15 @@ server <- function(input, output, session) {
 
   observeEvent(input$Title, {
     hide("Title")
-    Add("# :yellow_heart: Title")
+    Add("# :yellow_heart: Title <img src = {hexSticker_png} width = 120 align = 'right'>");nextLine()
     nextLine()
-    Add("<hr>")
+  })
+
+  observeEvent(input$Badge, {
+    hide("Badge")
+    Add("<img src='https://travis-ci.org/{account}/{package}.svg?branch=master'>");nextLine()
+    Add("<img src='https://www.r-pkg.org/badges/version/{package}'>");nextLine()
+    nextLine()
   })
 
   observeEvent(input$Description, {
@@ -48,7 +54,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$Install, {
     hide("Install")
-    Add("### :wrench: Install")
+    Add("## :wrench: Install")
     nextLine()
     Add("A step by step series of examples")
     nextLine()
@@ -69,7 +75,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$Dependency, {
     hide("Dependency")
-    Add("### :paperclip: Dependency")
+    Add("## :paperclip: Dependency")
     nextLine()
     Add("* [component 1](http://link.here) - x.y.z")
     nextLine()
@@ -78,7 +84,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$Prerequisites, {
     hide("Prerequisites")
-    Add("### :clipboard: Prerequisites")
+    Add("## :clipboard: Prerequisites")
     nextLine()
     Add("* [component 1](http://link.here) - x.y.z")
     nextLine()
@@ -87,7 +93,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$Author, {
     hide("Author")
-    Add("### :blush: Authors")
+    Add("## :blush: Authors")
     nextLine()
     Add("* :octocat: User1 [@github](http://github.link)")
     nextLine()
@@ -96,9 +102,9 @@ server <- function(input, output, session) {
 
   observeEvent(input$License, {
     hide("License")
-    Add("### :memo: License")
+    Add("## :memo: License")
     nextLine()
-    Add("Copyright :copyright: 2019 Jinhwan Kim")
+    Add("Copyright :copyright: 2019-2020 Jinhwan Kim")
     nextLine()
     Add("This project is [MIT](https://opensource.org/licenses/MIT) licensed")
     nextLine()
@@ -108,7 +114,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$shinyapps, {
     hide("shinyapps")
-    Add("### :cloud: ShinyApps")
+    Add("## :cloud: ShinyApps")
     nextLine()
     Add("https://jhkim.shinyapps.io/shinyReadme/")
   })

@@ -1,6 +1,6 @@
 Package: shinyReadme
 Title: Generate readme file for Github with shiny 
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Jinhwan",
            family = "Kim",
