@@ -1,0 +1,12 @@
+name: shinyReadme
+title: shinyReadme
+username:
+account: jhkim
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1608708
+bundleId: 2952573
+url: https://jhkim.shinyapps.io/shinyReadme/
+when: 1585723789.87133
+asMultiple: FALSE
+asStatic: FALSE
