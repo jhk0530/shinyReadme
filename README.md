@@ -1,8 +1,10 @@
 # :yellow_heart: shinyReadme <img src = 'https://user-images.githubusercontent.com/6457691/71320252-10258e80-24ec-11ea-959c-c545f2061dda.png' width = 120 align = 'right'></img>
 
+<!-- badges: start -->
+[![shinyReadme status badge](https://jhk0530.r-universe.dev/badges/shinyReadme)](https://jhk0530.r-universe.dev/shinyReadme)
+<!-- badges: end -->
 
 user-friendly generate github readme
-
 
 ## :clipboard: Prerequisites
 * [shiny](https://github.com/rstudio/shiny) - 1.4.0
@@ -19,11 +21,17 @@ or
 
 ## :wrench: Install / Run
 
+```r
+install.packages(
+  "shinyReadme",
+  repos = c("https://jhk0530.r-universe.dev", "https://cloud.r-project.org")
+)
+```
+
 1) use shinyReadme with local machine 
 
 ```r
-library(devtools) 
-install_github('jhk0530/shinyReadme')
+
 library(shinyReadme)
 shinyReadme()
 ```
